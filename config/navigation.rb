@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Configures your navigation
 SimpleNavigation::Configuration.run do |navigation|
-  # navigation.renderer = SimpleNavigationRenderers::Bootstrap3
+  navigation.renderer = SimpleNavigationRenderers::Bootstrap3
   # Specify the class that will be applied to active navigation items.
   # Defaults to 'selected' navigation.selected_class = 'your_selected_class'
 
