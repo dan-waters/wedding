@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th>Balance</th>
+      <th><%= model_class.human_attribute_name(:booked) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= link_to item.name, item_path(item) %></td>
         <td><%= number_to_currency(item.price) %></td>
         <td class="<%= item.paid? ? '' : 'red' %>"><%= number_to_currency(item.balance) %></td>
+        <td><%= item.booked ? 'Booked' : 'Not Booked' %></td>
         <td>
           <%= link_to t('.payments', :default => t("helpers.links.payments")),
                       item_payments_path(item), :class => 'btn btn-default btn-xs' %>

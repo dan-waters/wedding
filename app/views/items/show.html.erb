@@ -8,6 +8,10 @@
   <dd><%= @item.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
   <dd><%= number_to_currency(@item.price) %></dd>
+  <dt><strong>Balance:</strong></dt>
+  <dd class="<%= @item.paid? ? '' : 'red' %>"><%= number_to_currency(@item.balance) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:booked) %>:</strong></dt>
+  <dd><%= @item.booked ? 'Booked' : 'Not Booked' %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
