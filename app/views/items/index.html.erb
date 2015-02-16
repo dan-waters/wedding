@@ -30,6 +30,12 @@
         </td>
       </tr>
     <% end %>
+    <tr>
+      <td><strong>Total:</strong></td>
+      <td><%= number_to_currency Item.all.map(&:price).sum %></td>
+      <td><%= number_to_currency Item.all.map(&:balance).sum %></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 
