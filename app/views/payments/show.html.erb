@@ -12,8 +12,8 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= @payment.amount %>
+  <%= number_to_currency @payment.amount, unit: '£' %>
 </p>
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Edit', edit_item_payment_path(@item, @payment) %> |
+<%= link_to 'Back', item_payments_path(@item) %>

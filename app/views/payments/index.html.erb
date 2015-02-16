@@ -17,10 +17,10 @@
       <tr>
         <td><%= payment.item %></td>
         <td><%= payment.person %></td>
-        <td><%= payment.amount %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= number_to_currency payment.amount, unit: '£' %></td>
+        <td><%= link_to 'Show', item_payment_path(@item, payment) %></td>
+        <td><%= link_to 'Edit', edit_item_payment_path(@item, payment) %></td>
+        <td><%= link_to 'Destroy', item_payment_path(@item, payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Payment', new_payment_path %>
+<%= link_to 'New Payment', new_item_payment_path %>
