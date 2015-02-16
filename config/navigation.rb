@@ -32,6 +32,11 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :people, 'People', people_path
 
-    primary.item :items, 'Items', items_path
+    primary.item :items, {text: 'Items', icon: 'fa'}, items_path do |secondary|
+      secondary.item :all_items, 'All', items_path
+      Rails::Application::Item.all.each do |i|
+        secondary.item i.name.to_sym, i.name, item_path(i)
+      end
+    end
   end
 end
