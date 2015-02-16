@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Configures your navigation
 SimpleNavigation::Configuration.run do |navigation|
-  navigation.renderer = SimpleNavigationRenderers::Bootstrap3
+  # navigation.renderer = SimpleNavigationRenderers::Bootstrap3
   # Specify the class that will be applied to active navigation items.
   # Defaults to 'selected' navigation.selected_class = 'your_selected_class'
 
@@ -28,6 +28,8 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
+    primary.item :home, 'Home', root_path
+
     primary.item :people, 'People', people_path
 
     primary.item :items, 'Items', items_path
