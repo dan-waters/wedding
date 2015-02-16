@@ -18,7 +18,7 @@
         <td><%= link_to payment.id, item_payment_path(@item, payment) %></td>
         <td><%= link_to payment.item, payment.item %></td>
         <td><%= link_to payment.person, payment.person %></td>
-        <td><%= number_to_currency(payment.amount, unit: '£') %></td>
+        <td><%= number_to_currency(payment.amount) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_item_payment_path(@item, payment), :class => 'btn btn-default btn-xs' %>

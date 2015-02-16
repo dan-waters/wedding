@@ -14,4 +14,12 @@ class Item < ActiveRecord::Base
   def to_s
     self.name
   end
+
+  def balance
+    payments.map(&:amount).sum - price
+  end
+
+  def paid?
+    balance > 0
+  end
 end

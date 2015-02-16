@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:person) %>:</strong></dt>
   <dd><%= @payment.person %></dd>
   <dt><strong><%= model_class.human_attribute_name(:amount) %>:</strong></dt>
-  <dd><%= number_to_currency(@payment.amount, unit: '£') %></dd>
+  <dd><%= number_to_currency(@payment.amount) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

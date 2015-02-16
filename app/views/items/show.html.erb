@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @item.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= number_to_currency(@item.price, unit: '£') %></dd>
+  <dd><%= number_to_currency(@item.price) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
