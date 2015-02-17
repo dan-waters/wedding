@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   has_many :people, through: :payments
 
   def self.find_by_param(param)
-    find_by(name: param)
+    find_by!(name: param)
   end
 
   def to_param
