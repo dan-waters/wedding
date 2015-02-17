@@ -1,0 +1,23 @@
+<div class="container">
+  <h2><%= description %></h2>
+  <% if items.any? %>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Item</th>
+          <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% items.each do |item| %>
+            <tr>
+              <td><%= link_to item.name, item %></td>
+              <td><%= number_to_currency item.balance %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% else %>
+      <p>No <%= description %></p>
+  <% end %>
+</div>

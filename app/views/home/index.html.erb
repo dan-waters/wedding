@@ -1,3 +1,12 @@
 <h1>Daniel and Amy's Wedding</h1>
-<p><%= link_to 'People', people_path %></p>
-<p><%= link_to 'Items', items_path %></p>
+<%= render partial: 'item_table', locals: {description: 'Booked Items', items: Item.booked} %>
+<%= render partial: 'item_table', locals: {description: 'Items to Book', items: Item.not_booked} %>
+<div class="container">
+  <h2>Money</h2>
+  <dl class="dl-horizontal">
+    <dt class="list-group-item-heading">Paid:</dt>
+    <dd class="list-group-item-text"><%= number_to_currency Payment.all.map(&:amount).sum %></dd>
+    <dt class="list-group-item-heading">Outstanding:</dt>
+    <dd class="list-group-item-text"><%= number_to_currency Item.all.map(&:balance).sum %></dd>
+  </dl>
+</div>
