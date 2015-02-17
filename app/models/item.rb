@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   has_many :payments, dependent: :destroy
   has_many :people, through: :payments
+  default_scope { order(:name) }
   scope :booked, -> { where(booked: true) }
   scope :not_booked, -> { where(booked: false) }
 
