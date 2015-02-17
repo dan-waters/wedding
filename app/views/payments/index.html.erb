@@ -9,7 +9,7 @@
       <th class="col-xs-2"><%= model_class.human_attribute_name(:item) %></th>
       <th class="col-xs-2"><%= model_class.human_attribute_name(:person) %></th>
       <th class="col-xs-2"><%= model_class.human_attribute_name(:amount) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%=t '.actions', :default => t('helpers.actions') %></th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +19,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to t('.new', :default => t('helpers.links.new')),
             new_item_payment_path(@item),
             :class => 'btn btn-primary' %>
