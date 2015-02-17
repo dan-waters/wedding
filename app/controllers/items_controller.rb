@@ -44,9 +44,11 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

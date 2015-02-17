@@ -1,0 +1,22 @@
+<tr class="<%= dom_id(item) %>">
+  <td colspan="5">
+    <%= form_for item, remote: true do |f| %>
+        <div class="row">
+          <div class="col-xs-2">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="col-xs-2">
+            <%= f.text_field :price, class: 'form-control' %>
+          </div>
+          <div class="col-xs-2">
+            <p/>
+          </div>
+          <div class="col-xs-2">
+            <%= f.check_box :booked %>
+          </div>
+          <%= f.submit class: 'btn btn-default btn-xs' %>
+          <%= link_to 'Cancel', item_path(item), remote: true, class: 'btn btn-default btn-xs' %>
+        </div>
+    <% end %>
+  </td>
+</tr>
