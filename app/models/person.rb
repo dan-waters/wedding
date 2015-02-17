@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :payments
+  has_many :payments, dependent: :destroy
   has_many :items, through: :payments
 
   def self.find_by_param(param)

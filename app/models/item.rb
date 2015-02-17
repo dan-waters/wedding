@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  has_many :payments
+  has_many :payments, dependent: :destroy
   has_many :people, through: :payments
 
 
@@ -20,6 +20,6 @@ class Item < ActiveRecord::Base
   end
 
   def paid?
-    balance > 0
+    balance >= 0
   end
 end
