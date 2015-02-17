@@ -1,0 +1,22 @@
+<tr class="<%= dom_id(payment) %>">
+  <td colspan="5">
+    <%= form_for [@item, payment], remote: true do |f| %>
+        <div class="row">
+          <div class="col-xs-2">
+            <%= link_to payment.id, item_payment_path(@item, payment) %>
+          </div>
+          <div class="col-xs-2">
+            <%= link_to payment.item, payment.item %>
+          </div>
+          <div class="col-xs-2">
+            <%= f.collection_select :person_id, Person.all, :id, :name, {}, class: 'form-control' %>
+          </div>
+          <div class="col-xs-2">
+            <%= f.text_field :amount, class: 'form-control' %>
+          </div>
+          <%= f.submit class: 'btn btn-default btn-xs' %>
+          <%= link_to 'Cancel', item_payment_path(@item, payment), remote: true, class: 'btn btn-default btn-xs' %>
+        </div>
+    <% end %>
+  </td>
+</tr>

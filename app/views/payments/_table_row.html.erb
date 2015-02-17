@@ -1,0 +1,16 @@
+<tr class="<%= dom_id(payment) %>">
+  <td><%= link_to payment.id, item_payment_path(@item, payment) %></td>
+  <td><%= link_to payment.item, payment.item %></td>
+  <td><%= link_to payment.person, payment.person %></td>
+  <td>
+    <%= link_to number_to_currency(payment.amount), edit_item_payment_path(@item, payment), remote: true %>
+  </td>
+  <td>
+    <%= link_to 'Edit', edit_item_payment_path(@item, payment), remote: true, class: 'btn btn-default btn-xs' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                item_payment_path(@item, payment),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-xs btn-danger' %>
+  </td>
+</tr>
