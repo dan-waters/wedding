@@ -1,12 +1,15 @@
 <tr class="<%= dom_id(item) %>">
-  <td><%= link_to item.name, item_path(item) %></td>
-  <td>
+  <td class="col-xs-2"><%= link_to item.name, item_path(item) %></td>
+  <td class="col-xs-2">
     <%= link_to number_to_currency(item.price), edit_item_path(item), remote: true %>
   </td>
-  <td class="<%= item.paid? ? '' : 'red' %>"><%= number_to_currency(item.balance) %></td>
-  <td>
+  <td class="<%= item.paid? ? '' : 'red' %> col-xs-2"><%= number_to_currency(item.balance) %></td>
+  <td class="col-xs-1">
     <%= link_to item.booked ? 'Booked' : 'Not Booked', edit_item_path(item), remote: true %></td>
-  <td>
+  <td class="col-xs-2">
+    <%= link_to item.notes.blank? ? 'add note' : item.notes, edit_item_path(item), remote: true %>
+  </td>
+  <td class="col-xs-3">
     <%= link_to 'Payments', item_payments_path(item), :class => 'btn btn-default btn-xs' %>
     <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_item_path(item), :class => 'btn btn-default btn-xs', data: {remote: true} %>
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

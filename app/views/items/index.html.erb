@@ -8,8 +8,9 @@
       <th class="col-xs-2"><%= model_class.human_attribute_name(:name) %></th>
       <th class="col-xs-2"><%= model_class.human_attribute_name(:price) %></th>
       <th class="col-xs-2">Balance</th>
-      <th class="col-xs-2"><%= model_class.human_attribute_name(:booked) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="col-xs-1"><%= model_class.human_attribute_name(:booked) %></th>
+      <th class="col-xs-2"><%= model_class.human_attribute_name(:notes) %></th>
+      <th class="col-xs-3"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,7 @@
       <td><strong>Total:</strong></td>
       <td><%= number_to_currency Item.all.map(&:price).sum %></td>
       <td><%= number_to_currency Item.all.map(&:balance).sum %></td>
-      <td colspan="2"></td>
+      <td colspan="3"></td>
     </tr>
   </tbody>
 </table>
