@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<h2>All Day Guests</h2>
+<h2>All Day Guests (<%= FullDayGuest.count %>)</h2>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -31,7 +31,7 @@
   <% end %>
   </tbody>
 </table>
-<h2>Evening Guests</h2>
+<h2>Evening Guests (<%= EveningGuest.count %>)</h2>
 <table class="table table-striped">
   <thead>
   <tr>
