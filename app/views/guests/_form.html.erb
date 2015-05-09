@@ -1,0 +1,53 @@
+<%= form_for @guest, :html => {:class => "form-horizontal guest"} do |f| %>
+
+    <% if @guest.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being
+              saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @guest.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :type, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :type, [FullDayGuest.select_options, EveningGuest.select_options], {default: 'Guest'}, :class => 'form-control' %>
+      </div>
+      <%= error_span(@guest[:type]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+      <%= error_span(@guest[:name]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :invited, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :invited %>
+      </div>
+      <%= error_span(@guest[:invited]) %>
+    </div>
+    <div class="control-group">
+      <%= f.label :accepted, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :accepted %>
+      </div>
+      <%= error_span(@guest[:accepted]) %>
+    </div>
+
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                guests_path, :class => 'btn btn-default' %>
+
+<% end %>

@@ -11,32 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217155634) do
+ActiveRecord::Schema.define(version: 20150509165224) do
 
-  create_table 'items', force: :cascade do |t|
-    t.string 'name'
-    t.decimal 'price'
-    t.datetime 'created_at',                 null: false
-    t.datetime 'updated_at',                 null: false
-    t.boolean  'booked',     default: false, null: false
-    t.text 'notes'
+  create_table "guests", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.boolean  "invited"
+    t.boolean  "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'payments', force: :cascade do |t|
-    t.integer 'item_id'
-    t.integer 'person_id'
-    t.decimal 'amount'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "booked",     default: false, null: false
+    t.text     "notes"
   end
 
-  add_index 'payments', ['item_id'], name: 'index_payments_on_item_id'
-  add_index 'payments', ['person_id'], name: 'index_payments_on_person_id'
+  create_table "payments", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "person_id"
+    t.decimal  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  create_table 'people', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  add_index "payments", ["item_id"], name: "index_payments_on_item_id"
+  add_index "payments", ["person_id"], name: "index_payments_on_person_id"
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

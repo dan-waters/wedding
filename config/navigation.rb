@@ -38,5 +38,7 @@ SimpleNavigation::Configuration.run do |navigation|
         secondary.item i.name.to_sym, i.name, item_path(i)
       end
     end
+
+    primary.item :guests, 'Guests', guests_path
   end
 end
