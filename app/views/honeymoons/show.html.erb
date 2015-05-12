@@ -5,9 +5,9 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:from) %>:</strong></dt>
-  <dd><%= l @honeymoon.from %></dd>
+  <dd><%= l(@honeymoon.from) if @honeymoon.from %></dd>
   <dt><strong><%= model_class.human_attribute_name(:to) %>:</strong></dt>
-  <dd><%= l @honeymoon.to %></dd>
+  <dd><%= l(@honeymoon.to) if @honeymoon.to %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
