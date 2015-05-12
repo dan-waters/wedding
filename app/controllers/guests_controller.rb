@@ -28,8 +28,8 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to guest_path(@guest), notice: 'Guest was successfully created.' }
-        format.json { render :show, status: :created, location: guest_path(@guest) }
+        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
+        format.json { render :show, status: :created, location: @guest }
       else
         format.html { render :new }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:type, :name, :invited, :accepted)
+      params.require(:guest).permit(:guest_type_id, :name, :invited, :accepted)
     end
 end

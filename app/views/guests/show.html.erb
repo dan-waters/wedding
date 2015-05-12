@@ -4,14 +4,14 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @guest.humanize %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:guest_type_id) %>:</strong></dt>
+  <dd><%= @guest.guest_type.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @guest.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:invited) %>:</strong></dt>
-  <dd><%= @guest.invited %></dd>
+  <dd><%= @guest.invited ? 'Yes' : 'No' %></dd>
   <dt><strong><%= model_class.human_attribute_name(:accepted) %>:</strong></dt>
-  <dd><%= @guest.accepted %></dd>
+  <dd><%= @guest.accepted ? 'Yes' : 'No' %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
