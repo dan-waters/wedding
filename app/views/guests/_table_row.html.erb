@@ -1,7 +1,7 @@
 <tr id="<%= dom_id(guest) %>">
-  <td class="col-xs-4"><%= link_to guest.name, guest_path(guest) %></td>
-  <td class="col-xs-2"><%= guest.invited ? 'Yes' : 'No' %></td>
-  <td class="col-xs-2"><%= guest.accepted ? 'Yes' : 'No' %></td>
+  <td class="col-xs-4"><%= link_to guest.name, edit_guest_path(guest), remote: true %></td>
+  <td class="col-xs-2"><%= link_to guest.invited ? 'Yes' : 'No', edit_guest_path(guest), remote: true %></td>
+  <td class="col-xs-2"><%= link_to guest.accepted ? 'Yes' : 'No', edit_guest_path(guest), remote: true %></td>
   <td class="col-xs-4">
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_guest_path(guest), :class => 'btn btn-default btn-xs', data: {remote: true} %>
