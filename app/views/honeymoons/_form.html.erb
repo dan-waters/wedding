@@ -18,14 +18,14 @@
   <div class="control-group">
     <%= f.label :from, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :from, value: l(@honeymoon.from) if @honeymoon.from, class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
+      <%= f.text_field :from, value: (l(@honeymoon.from) if @honeymoon.from), class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
     </div>
     <%= error_span(@honeymoon[:from]) %>
   </div>
   <div class="control-group">
     <%= f.label :to, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :to, value: l(@honeymoon.to) if @honeymoon.to, class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
+      <%= f.text_field :to, value: (l(@honeymoon.to) if @honeymoon.to), class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
     </div>
     <%= error_span(@honeymoon[:to]) %>
   </div>
