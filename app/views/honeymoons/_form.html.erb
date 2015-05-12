@@ -1,0 +1,38 @@
+<%= form_for @honeymoon, url: honeymoon_path, :html => { :class => "form-horizontal honeymoon" } do |f| %>
+
+    <% if @honeymoon.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@honeymoon.errors.count, "error") %> prohibited this honeymoon from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @honeymoon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :from, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :from, value: l(@honeymoon.to), class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
+    </div>
+    <%= error_span(@honeymoon[:from]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :to, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :to, value: l(@honeymoon.to), class: 'form-control', data: {provide: 'datepicker', date_format: 'dd-mm-yyyy', date_orientation: 'top', date_autoclose: true} %>
+    </div>
+    <%= error_span(@honeymoon[:to]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            honeymoon_path, :class => 'btn btn-default' %>
+
+<% end %>

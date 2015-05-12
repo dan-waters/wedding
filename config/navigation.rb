@@ -40,5 +40,7 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :guests, 'Guests', guests_path
+
+    primary.item :honeymoon, 'Honeymoon', honeymoon_path
   end
 end
