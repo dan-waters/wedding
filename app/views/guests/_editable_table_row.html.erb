@@ -1,0 +1,21 @@
+<tr id="<%= dom_id(guest) %>">
+  <td colspan="4">
+    <%= form_for guest, remote: true do |f| %>
+        <div class="row">
+          <div class="col-xs-4">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="col-xs-2">
+            <%= f.check_box :invited %>
+          </div>
+          <div class="col-xs-2">
+            <%= f.check_box :accepted %>
+          </div>
+          <div class="col-xs-4">
+            <%= f.submit class: 'btn btn-default btn-xs' %>
+            <%= link_to 'Cancel', guest, remote: true, class: 'btn btn-danger btn-xs' %>
+          </div>
+        </div>
+    <% end %>
+  </td>
+</tr>

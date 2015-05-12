@@ -1,1 +1,1 @@
-$('.<%= dom_id(@payment) %>').replaceWith('<%= j(render partial: 'editable_table_row', locals: {payment: @payment}) %>');
+$('#<%= dom_id(@payment) %>').replaceWith('<%= j(render partial: 'editable_table_row', locals: {payment: @payment}) %>');

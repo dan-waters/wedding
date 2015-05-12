@@ -1,4 +1,4 @@
-<tr class="<%= dom_id(payment) %>">
+<tr id="<%= dom_id(payment) %>">
   <td><%= link_to payment.id, item_payment_path(@item, payment) %></td>
   <td><%= link_to payment.item, payment.item %></td>
   <td><%= link_to payment.person, payment.person %></td>

@@ -1,4 +1,4 @@
-<tr class="<%= dom_id(item) %>">
+<tr id="<%= dom_id(item) %>">
   <td class="col-xs-2"><%= link_to item.name, item_path(item) %></td>
   <td class="col-xs-2">
     <%= link_to number_to_currency(item.price), edit_item_path(item), remote: true %>
