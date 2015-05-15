@@ -4,7 +4,7 @@ class EveningGuest < Guest; end
 class MoveGuestTypes < ActiveRecord::Migration
   def up
     add_column :guests, :guest_type_id, :integer
-    add_foreign_key :guests, :guest_types
+    add_foreign_key :guest, :guest_types
 
     all_day = GuestType.create!(description: 'All Day')
     evening = GuestType.create!(description: 'Evening Only')
@@ -30,7 +30,7 @@ class MoveGuestTypes < ActiveRecord::Migration
     end
     GuestType.delete_all
 
-    remove_foreign_key :guests, :guest_types
+    remove_foreign_key :guest, :guest_types
     remove_column :guests, :guest_type_id
   end
 end

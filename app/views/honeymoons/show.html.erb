@@ -10,8 +10,37 @@
   <dd><%= l(@honeymoon.to) if @honeymoon.to %></dd>
 </dl>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              honeymoon_path, :class => 'btn btn-default'  %>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%= model_class.human_attribute_name(:arrival_date) %></th>
+    <th><%= model_class.human_attribute_name(:departure_date) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @honeymoon.destinations.each do |destination| %>
+      <tr>
+        <td><%= link_to destination.name, honeymoon_destination_path(destination) %></td>
+        <td><%= destination.arrival_date %></td>
+        <td><%= destination.departure_date %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_honeymoon_destination_path(destination), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      honeymoon_destination_path(destination),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new_destination', :default => 'New Destination'),
+              new_honeymoon_destination_path, :class => 'btn btn-primary'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_honeymoon_path, :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
+    @guest = Guest.all
   end
 
   # GET /guests/1
