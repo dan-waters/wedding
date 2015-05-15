@@ -23,8 +23,8 @@
   <% @honeymoon.destinations.each do |destination| %>
       <tr>
         <td><%= link_to destination.name, honeymoon_destination_path(destination) %></td>
-        <td><%= destination.arrival_date %></td>
-        <td><%= destination.departure_date %></td>
+        <td><%= l(destination.arrival_date) %></td>
+        <td><%= l(destination.departure_date) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_honeymoon_destination_path(destination), :class => 'btn btn-default btn-xs' %>
