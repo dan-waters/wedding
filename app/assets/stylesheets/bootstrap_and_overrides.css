@@ -9,3 +9,16 @@
 .dl-horizontal dt {
     text-align: left;
 }
+
+@media (min-width: 432px) {
+    .navbar-nav > li {
+        float: left;
+    }
+}
+
+@media (max-width: 431px) {
+    .navbar-nav>li {
+        width: 50%;
+        float: left;
+    }
+}
