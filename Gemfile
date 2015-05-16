@@ -29,6 +29,8 @@ gem 'simple_navigation_renderers'
 gem 'rails_12factor', group: :production
 gem 'acts_as_singleton'
 gem 'bootstrap-datepicker-rails'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -5,7 +5,10 @@ class DestinationsController < ApplicationController
   # GET /destinations
   # GET /destinations.json
   def index
-    redirect_to honeymoon_path
+    respond_to do |format|
+      format.html { redirect_to honeymoon_path }
+      format.json { @destinations = @honeymoon.destinations }
+    end
   end
 
   # GET /destinations/1

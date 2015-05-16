@@ -1,5 +1,5 @@
 class Destination < ActiveRecord::Base
-  belongs_to :honeymoon
+  belongs_to :honeymoon, dependent: :destroy
   validates_presence_of :name, :arrival_date, :departure_date
   validate :dates_do_not_overlap, :dates_inside_honeymoon_range
 
