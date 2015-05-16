@@ -1,7 +1,15 @@
 // Place all the styles related to the Honeymoons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#map-canvas {
-  height: 600px;
-  width: 100%;
+@media (max-width: 767px) {
+  #map-canvas {
+    height: 100vw;
+    width: 100vw;
+  }
+}
+
+@media (min-width: 768px) {
+  #map-canvas {
+    height: 500px;
+  }
 }

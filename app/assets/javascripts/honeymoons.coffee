@@ -10,32 +10,29 @@ mapStyle = [{"featureType": "administrative", "elementType": "labels.text.fill",
   {"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"}]},
   {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]}]
 
-geocoder = null
-handler = null
-directionsDisplay = null
-directionsService = null
-
-addDestinationToMap = (destination) ->
-  geocoder.geocode({'address': destination.name}, (results, status) ->
-    if (status == google.maps.GeocoderStatus.OK)
-      marker = handler.addMarker({
-        "lat": results[0].geometry.location.lat(),
-        "lng": results[0].geometry.location.lng(),
-        "infowindow": destination.name
-      })
-      handler.bounds.extendWith(marker)
-      handler.fitMapToBounds()
-  )
-
 window.showMap = () ->
   handler = Gmaps.build('Google')
   geocoder = new google.maps.Geocoder()
   directionsDisplay = new google.maps.DirectionsRenderer()
   directionsService = new google.maps.DirectionsService()
-  handler.buildMap({provider: {styles: mapStyle}, internal: {id: 'map-canvas'}}, ->
+  handler.buildMap({provider: {styles: mapStyle, center: new google.maps.LatLng(51, 8), zoom: 5}, internal: {id: 'map-canvas'}}, ->
+    directionsDisplay.setMap(handler.getMap())
     $.getJSON($('#map-canvas').data('url'), (destinations) ->
+      origin = destinations.shift()
+      destination = destinations.pop()
+      dests = []
       destinations.forEach((destination) ->
-        addDestinationToMap(destination)
+        dests.push({location: destination.name, stopover: true})
       );
+      request = {
+        origin: origin.name,
+        destination: destination.name,
+        travelMode: google.maps.TravelMode.DRIVING,
+        waypoints: dests
+      };
+      directionsService.route(request, (response, status) ->
+        if (status == google.maps.DirectionsStatus.OK)
+          directionsDisplay.setDirections(response)
+      )
     )
-  );
+  )
