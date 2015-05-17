@@ -16,7 +16,7 @@ class HotelsController < ApplicationController
         format.html { redirect_to honeymoon_destination_hotel_path(@destination), notice: 'Hotel was successfully created.' }
         format.json { render :show, status: :created, location: @hotel }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @hotel.errors, status: :unprocessable_entity }
       end
     end

@@ -11,7 +11,11 @@
   <dt><strong><%= model_class.human_attribute_name(:departure_date) %>:</strong></dt>
   <dd><%= l @destination.departure_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:hotel) %>:</strong></dt>
-  <dd><%= @destination.hotel ? link_to(@destination.hotel.name, honeymoon_destination_hotel_path(@destination)) : 'No hotel' %></dd>
+  <dd><%= @destination.hotel ?
+                  link_to(@destination.hotel.name, honeymoon_destination_hotel_path(@destination)) +
+                          ' ' +
+                          link_to(raw(fa_icon('external-link', class: 'th-large')), @destination.hotel.url, target: '_blank') :
+                  'No hotel' %></dd>
 </dl>
 
 <%= link_to t('.edit_hotel', :default => 'Edit Hotel'),

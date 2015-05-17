@@ -28,7 +28,11 @@
         <td><%= link_to destination.name, honeymoon_destination_path(destination) %></td>
         <td><%= l(destination.arrival_date) %></td>
         <td><%= l(destination.departure_date) %></td>
-        <td><%= destination.hotel ? link_to(destination.hotel.name, honeymoon_destination_hotel_path(destination)) : link_to('No hotel', edit_honeymoon_destination_hotel_path(destination)) %></td>
+        <td><%= destination.hotel ?
+                        link_to(destination.hotel.name, honeymoon_destination_hotel_path(destination)) +
+                                ' ' +
+                                link_to(raw(fa_icon('external-link', class: 'th-large')), destination.hotel.url, target: '_blank') :
+                        link_to('No hotel', edit_honeymoon_destination_hotel_path(destination)) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_honeymoon_destination_path(destination), :class => 'btn btn-default btn-xs' %>

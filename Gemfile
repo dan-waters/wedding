@@ -33,6 +33,7 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'puma'
 gem 'friendly_id'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
