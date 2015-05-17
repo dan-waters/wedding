@@ -10,3 +10,13 @@
     <dd class="list-group-item-text"><%= number_to_currency Item.all.map(&:balance).sum %></dd>
   </dl>
 </div>
+<div class="container">
+  <h2>Honeymoon</h2>
+  <div id="map-canvas" data-url="<%= honeymoon_destinations_path %>"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        window.showMap();
+    });
+</script>

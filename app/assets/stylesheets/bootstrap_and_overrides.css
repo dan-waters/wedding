@@ -22,3 +22,9 @@
         float: left;
     }
 }
+
+.footer {
+    width: 100%;
+    text-align: right;
+    color: #666666;
+}
