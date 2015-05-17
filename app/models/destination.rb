@@ -1,7 +1,11 @@
 class Destination < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
+
   belongs_to :honeymoon
   has_one :hotel
   validates_presence_of :name, :arrival_date, :departure_date
+  validates_uniqueness_of :name
   validate :dates_do_not_overlap, :dates_inside_honeymoon_range
 
   default_scope { order(:arrival_date) }

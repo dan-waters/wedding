@@ -68,7 +68,7 @@ class PaymentsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find_by_param(params[:item_id])
+    @item = Item.friendly.find(params[:item_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
