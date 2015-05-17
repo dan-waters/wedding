@@ -5,10 +5,6 @@ class HotelsController < ApplicationController
   def show
   end
 
-  def new
-    @hotel = @destination.build_hotel
-  end
-
   def edit
   end
 
@@ -57,8 +53,7 @@ class HotelsController < ApplicationController
   end
 
   def set_hotel
-    @hotel = @destination.hotel
-    raise ActiveRecord::RecordNotFound.new("Couldn't find hotel for destination with 'id'=#{params[:destination_id]}") unless @hotel
+    @hotel = @destination.hotel || @destination.build_hotel
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

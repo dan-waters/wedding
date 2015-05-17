@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :guests
   resource :honeymoon, except: [:new, :create, :index] do
     resources :destinations do
-      resource :hotel, except: [:index]
+      resource :hotel, except: [:new, :index]
     end
   end
 end
