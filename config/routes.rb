@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
   resources :people
   resources :guests
-  resource :honeymoon, except: [:new, :create] do
-    resources :destinations
+  resource :honeymoon, except: [:new, :create, :index] do
+    resources :destinations do
+      resource :hotel, except: [:index]
+    end
   end
 end

@@ -7,11 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @destination.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:arrival_date) %>:</strong></dt>
-  <dd><%= @destination.arrival_date %></dd>
+  <dd><%= l @destination.arrival_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:departure_date) %>:</strong></dt>
-  <dd><%= @destination.departure_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:honeymoon_id) %>:</strong></dt>
-  <dd><%= @destination.honeymoon_id %></dd>
+  <dd><%= l @destination.departure_date %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
