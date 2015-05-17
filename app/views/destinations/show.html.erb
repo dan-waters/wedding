@@ -10,8 +10,16 @@
   <dd><%= l @destination.arrival_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:departure_date) %>:</strong></dt>
   <dd><%= l @destination.departure_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hotel) %>:</strong></dt>
+  <dd><%= @destination.hotel ? @destination.hotel.name : 'No hotel' %></dd>
 </dl>
 
+<%= if @destination.hotel.nil?
+      link_to t('.add_hotel', :default => 'Add Hotel'), new_honeymoon_destination_hotel_path(@destination), :class => 'btn btn-primary'
+    else
+      link_to t('.edit_hotel', :default => 'Edit Hotel'), edit_honeymoon_destination_hotel_path(@destination), :class => 'btn btn-primary'
+    end
+%>
 <%= link_to t('.back', :default => t("helpers.links.back")),
             honeymoon_path, :class => 'btn btn-default' %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
